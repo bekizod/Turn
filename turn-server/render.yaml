@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: coturn
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: EXTERNAL_IP
+        value: auto
+    ports:
+      - port: 3478
+        protocol: TCP
+      - port: 3478
+        protocol: UDP
+      - port: 5349
+        protocol: TCP
+      - port: 5349
+        protocol: UDP
+      - port: 49152-65535
+        protocol: UDP
+    healthCheckPath: /health
+    plan: free  # Or 'starter', 'standard', 'plus' based on your needs
+    numInstances: 1
+    regions: ["oregon"]  # Choose your preferred region
+    resources:
+      memory: 512MB
+      cpu: 0.5

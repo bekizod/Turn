@@ -8,7 +8,8 @@ RUN chmod +x /usr/bin/turnserver
 
 # Create necessary directories with correct permissions
 RUN mkdir -p /etc/coturn/ssl && \
-    chmod -R 755 /etc/coturn
+    mkdir -p /etc/letsencrypt/live/turn-x99q.onrender.com && \
+    chmod -R 755 /etc/coturn /etc/letsencrypt
 
 # Copy configuration
 COPY turnserver.conf /etc/coturn/turnserver.conf

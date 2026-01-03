@@ -16,5 +16,5 @@ else
     sed -i 's/^pkey=/# pkey=/g' /etc/coturn/turnserver.conf
 fi
 
-# Execute the TURN server
-exec turnserver -c /etc/coturn/turnserver.conf
+# Execute the TURN server using full path
+exec /usr/bin/turnserver -c /etc/coturn/turnserver.conf

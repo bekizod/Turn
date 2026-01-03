@@ -1,7 +1,10 @@
 FROM coturn/coturn:latest
 
-# Switch to root to perform setup
+# Switch to root to perform setup and run the server
 USER root
+
+# Ensure turnserver is executable
+RUN chmod +x /usr/bin/turnserver
 
 # Create necessary directories with correct permissions
 RUN mkdir -p /etc/coturn/ssl && \
